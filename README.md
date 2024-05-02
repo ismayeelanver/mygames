@@ -1,2 +1,0 @@
-# mygames
-game arcade
