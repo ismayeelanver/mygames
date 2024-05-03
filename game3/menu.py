@@ -1,6 +1,7 @@
 # this is the menu for the game
 
 import pygame
+from math import sin 
 
 pygame.init()
 pygame.display.set_caption("Main Menu")
@@ -23,11 +24,15 @@ BG = pygame.image.load("Graphics/BG.png")
 Play = pygame.font.Font("UI/normal.ttf", 50).render("Play", True, "Black")
 logo = pygame.font.Font("UI/normal.ttf", 128).render("Pop 'N Top", True, "Black")
 B_G.add(B)
+ypos = 100
+xpos = 100
 while True:
     screen.blit(BG, (0, 0))
     B_G.draw(screen)
     screen.blit(Play, (350, 380))
-    screen.blit(logo, (100, 100))
+    screen.blit(logo, (xpos, ypos))
+    ypos += sin(pygame.time.get_ticks() / 200)
+    xpos += sin(pygame.time.get_ticks() / 100)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
@@ -39,3 +44,4 @@ while True:
                 pygame.quit()
                 exit()
     pygame.display.update()
+    pygame.time.Clock().tick(60)
