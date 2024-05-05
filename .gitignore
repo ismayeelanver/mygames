@@ -1,0 +1,4 @@
+*.pyc
+game3/_pycache__
+game4/__pycache__
+game5/__pycache__
