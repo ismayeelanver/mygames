@@ -4,6 +4,8 @@ from math import atan2, sin, cos, degrees
 import random
 
 pygame.init()
+pygame.mixer.Channel(0).play(pygame.mixer.Sound("song.mp3"), loops=-1)
+pygame.display.set_icon(pygame.image.load("Graphics/player.png"))
 
 # init
 w = 800
@@ -41,6 +43,7 @@ class Enemy:
             self.rect.x += dx * self.speed / dist
             self.rect.y += dy * self.speed / dist
 enemy = Enemy()
+score = 0
 while True:
     boss_bar = pygame.Rect(0, 0, enemy.health, 20)
     player_health_bar = pygame.Rect(w // 2, 0, player_health, 20)
@@ -75,19 +78,24 @@ while True:
             bullets.remove(bullet)
     
     if bullets and enemy.rect.collidepoint(bullets[-1]):
+        pygame.mixer.Channel(1).play(pygame.mixer.Sound("kill.mp3"))
         enemy.health -= 20
         bullets.remove(bullet)
+        score += 1
     
     pygame.draw.rect(screen, (255, 0, 0), boss_bar)
     pygame.draw.rect(screen, (0, 255, 0), player_health_bar)
+    screen.blit(pygame.font.Font(None, 32).render(str(score), True, "Black"), (w - 40, h - 40))
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
             quit()
         if event.type == pygame.MOUSEBUTTONDOWN:
             bullets.append(list(player_pos))
+            pygame.mixer.Channel(2).play(pygame.mixer.Sound("shoot.mp3"))
     
     if enemy.health <= 0:
+        pygame.mixer.Channel(3).play(pygame.mixer.Sound("kill.mp3"))
         enemy = Enemy()
     
     if player1_rect.collidepoint(enemy.rect.center):
@@ -96,4 +104,5 @@ while True:
     if player_health <= 0:
         player_health = 100
         enemy = Enemy()
+        pygame.mixer.Channel(4).play(pygame.mixer.Sound("die.mp3"))
     pygame.display.update()
