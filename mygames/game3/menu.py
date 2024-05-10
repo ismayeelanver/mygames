@@ -5,7 +5,6 @@ from math import sin
 
 pygame.init()
 pygame.display.set_caption("Main Menu")
-pygame.display.set_icon(pygame.image.load("Graphics/Bubble.png"))
 
 pygame.mixer.music.load("menu.wav")
 pygame.mixer.music.play(-1)

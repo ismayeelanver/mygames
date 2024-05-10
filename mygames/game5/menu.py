@@ -6,8 +6,6 @@ pygame.init()
 w = 800
 h = 800
 pygame.mixer.Channel(0).play(pygame.mixer.Sound("menu.mp3"), loops=-1)
-pygame.display.set_icon(pygame.image.load("Graphics/Player.png"))
-pygame.display.set_caption("")
 class Button(pygame.sprite.Sprite):
     def __init__(self, x, y):
         pygame.sprite.Sprite.__init__(self)

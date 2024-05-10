@@ -9,7 +9,6 @@ pygame.mixer.music.load("main.wav")
 pygame.mixer.music.play(-1)
 
 pygame.display.set_caption("Pop 'N Top")
-pygame.display.set_icon(pygame.image.load("Graphics/bomb.png"))
 w = 800
 h = 800
 

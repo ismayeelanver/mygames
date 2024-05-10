@@ -8,7 +8,6 @@ w = 800
 h = 600
 screen = pygame.display.set_mode((w, h))
 pygame.display.set_caption("Ohio's Most Dangerous Game")
-pygame.display.set_icon(pygame.image.load("Bullet.png"))
 
 def main():
     pygame.display.update()

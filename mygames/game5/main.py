@@ -3,8 +3,6 @@ import pygame
 
 pygame.init()
 pygame.mixer.Channel(1).play(pygame.mixer.Sound("game.mp3"), loops=-1)
-pygame.display.set_caption("")
-pygame.display.set_icon(pygame.image.load("Graphics/Player.png"))
 w = 800
 h = 800
 font = pygame.font.Font("normal.ttf", 50)

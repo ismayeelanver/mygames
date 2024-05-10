@@ -5,8 +5,6 @@ import random
 pygame.init()
 
 pygame.mixer.Channel(0).play(pygame.mixer.Sound("main.wav"), loops=-1)
-pygame.display.set_caption("Game Started")
-pygame.display.set_icon(pygame.image.load("Graphics/Ball.png"))
 
 w = 800
 h = 800
