@@ -41,7 +41,7 @@ while True:
         
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
             if B.rect.collidepoint(pygame.mouse.get_pos()):
-                import main
+                import game10.main as main
                 pygame.quit()
                 exit()
     pygame.display.update()
