@@ -35,6 +35,6 @@ while True:
         if event.type == pygame.MOUSEBUTTONDOWN:
             if B.rect.collidepoint(pygame.mouse.get_pos()):
                 pygame.mixer.Channel(1).play(pygame.mixer.Sound("Sound/sound.mp3"))
-                import game10.main as main
+                import main
     pygame.display.update()
     pygame.time.Clock().tick(60)
